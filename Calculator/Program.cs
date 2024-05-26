@@ -1,4 +1,6 @@
-﻿class Calculator
+﻿using System.Text.RegularExpressions;
+
+class Calculator
 {
     public static double DoOperation(double num1, double num2, string op)
     {
@@ -74,6 +76,33 @@ class Program
                 "Your choice? ");
 
             string? op = Console.ReadLine();
+
+            // Validate user input is not null and matches one of the available choices
+            if (op == null || !Regex.IsMatch(op, "[a|s|m|d]"))
+                Console.WriteLine("Error: Unrecognizable input.");
+            else
+            {
+                try
+                {
+                    // Display error if math operation is invalid, else display the result
+                    result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    if (double.IsNaN(result)) Console.WriteLine("This operation will result in a methematical error.\n");
+                    else Console.WriteLine("Your result: {0:0.##\n", result); // 0 = mandatory place, # = optional place
+                }
+                catch (Exception e)
+                {
+                    // Catch any other error that wasn't caught
+                    Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
+                }
+            }
+            Console.WriteLine("------------------------\n");
+
+            // Wait for user response before closing
+            Console.WriteLine("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
+            if (Console.ReadLine() == "n") endApp = true;
+
+            Console.WriteLine("\n"); // Spacing for better styling
         }
+        return;
     }
 }
