@@ -1,46 +1,39 @@
-﻿double num1 = 0; double num2 = 0;
-
-Console.WriteLine("Console Calculator in C#\r");
-Console.WriteLine("------------------------\n");
-
-// Get first num from user
-Console.WriteLine("Type a number, then press Enter:");
-num1 = Convert.ToDouble(Console.ReadLine());
-
-// Get second num from user
-Console.WriteLine("Type another number, then press Enter:");
-num2 = Convert.ToDouble(Console.ReadLine());
-
-// Ask which math operation they want to use
-Console.Write("Choose an option from the following list:\n" +
-    "\ta - Add\n" +
-    "\ts - Subtract\n" +
-    "\tm - Multiply\n" +
-    "\td - Divide\n" +
-    "Your option?\n");
-
-// Switch for math result based on user response
-switch (Console.ReadLine())
+﻿class Calculator
 {
-    case "a":
-        Console.WriteLine($"Your result: {num1} + {num2} = {num1 + num2}");
-        break;
-    case "s":
-        Console.WriteLine($"Your result: {num1} - {num2} = {num1 - num2}");
-        break;
-    case "m":
-        Console.WriteLine($"Your result: {num1} * {num2} = {num1 * num2}");
-        break;
-    case "d":
-        while (num2 == 0)
+    public static double DoOperation(double num1, double num2, string op)
+    {
+        double result = double.NaN; // Default value is "not a number" to avoid division by 0 errors
+
+        switch (op)
         {
-            Console.WriteLine("Enter a non-zero divisor: ");
-            num2 = Convert.ToDouble(Console.ReadLine());
+            case "a":
+                result = num1 + num2;
+                break;
+            case "s":
+                result = num2 - num1;
+                break;
+            case "m":
+                result = num1 * num2;
+                break;
+            case "d":
+                if (num1 != 0) result = num1 / num2;
+                break;
+            // Return text displaying an incorrect option was input
+            default:
+                break;
         }
-        Console.WriteLine($"Your result: {num1} / {num2} = {num1 / num2}");
-        break;
+        return result;
+    }
 }
 
-// Wait for user to respond before closing
-Console.WriteLine("Press any key to close the Calculator console app...");
-Console.ReadKey();
+class Program
+{
+    static void Main(string[] args)
+    {
+        bool endApp = false;
+        // Intitial calculator title
+        Console.WriteLine("Console Calculator in C#\r");
+        Console.WriteLine("------------------------\n");
+        return;
+    }
+}
