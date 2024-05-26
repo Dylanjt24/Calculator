@@ -1,15 +1,15 @@
-﻿int num1 = 0; int num2 = 0;
+﻿double num1 = 0; double num2 = 0;
 
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
 
 // Get first num from user
 Console.WriteLine("Type a number, then press Enter:");
-num1 = Convert.ToInt32(Console.ReadLine());
+num1 = Convert.ToDouble(Console.ReadLine());
 
 // Get second num from user
 Console.WriteLine("Type another number, then press Enter:");
-num2 = Convert.ToInt32(Console.ReadLine());
+num2 = Convert.ToDouble(Console.ReadLine());
 
 // Ask which math operation they want to use
 Console.Write("Choose an option from the following list:\n" +
