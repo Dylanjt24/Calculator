@@ -87,7 +87,7 @@ class Program
                     // Display error if math operation is invalid, else display the result
                     result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result)) Console.WriteLine("This operation will result in a mathematical error.\n");
-                    else Console.WriteLine("Your result: {0:0.##\n", result); // 0 = mandatory place, # = optional place
+                    else Console.WriteLine("Your result: {0:0.##}\n", result); // 0 = mandatory place, # = optional place
                 }
                 catch (Exception e)
                 {
