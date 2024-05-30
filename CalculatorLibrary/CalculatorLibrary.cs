@@ -6,10 +6,10 @@ namespace CalculatorLibrary
     {
         public Calculator()
         {
-            StreamWriter logFile = File.CreateText("calculator.log");
-            Trace.Listeners.Add(new TextWriterTraceListener(logFile));
-            Trace.AutoFlush = true;
-            Trace.WriteLine("Starting Calculator Log");
+            StreamWriter logFile = File.CreateText("calculator.log"); // StreamWriter implements a TextWriter for writing characters to a stream in a particular encoding
+            Trace.Listeners.Add(new TextWriterTraceListener(logFile)); // Adds a TraceListener and directs tracing/debugging to the created logFile
+            Trace.AutoFlush = true; // Calls Flush() after every write, which flushes the output buffer and causes buffered data to be written to the Listeners
+            Trace.WriteLine("Starting Calculator Log"); // Writes the value of the object's ToString() method to the Listeners
             Trace.WriteLine(String.Format($"Started {System.DateTime.Now.ToString()}"));
         }
         public static double DoOperation(double num1, double num2, string op)
