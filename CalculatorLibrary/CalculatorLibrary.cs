@@ -12,7 +12,7 @@ namespace CalculatorLibrary
             Trace.WriteLine("Starting Calculator Log"); // Writes the value of the object's ToString() method to the Listeners
             Trace.WriteLine(String.Format($"Started {System.DateTime.Now.ToString()}"));
         }
-        public static double DoOperation(double num1, double num2, string op)
+        public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not a number" to avoid division by 0 errors
 
@@ -20,15 +20,23 @@ namespace CalculatorLibrary
             {
                 case "a":
                     result = num1 + num2;
+                    Trace.WriteLine($"{num1} + {num2} = {result}");
                     break;
                 case "s":
                     result = num2 - num1;
+                    Trace.WriteLine($"{num1} - {num2} = {result}");
                     break;
                 case "m":
                     result = num1 * num2;
+                    Trace.WriteLine($"{num1} * {num2} = {result}");
                     break;
                 case "d":
-                    if (num1 != 0) result = num1 / num2;
+                    // Make sure divisor is non-zero
+                    if (num2 != 0)
+                    {
+                        result = num1 / num2;
+                        Trace.WriteLine($"{num1} / {num2} = {result}");
+                    }
                     break;
                 // Return text displaying an incorrect option was input
                 default:
