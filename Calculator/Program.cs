@@ -1,6 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using CalculatorLibrary;
 
+namespace CalculatorProgram;
+
 class Program
 {
     static void Main(string[] args)
@@ -14,6 +16,7 @@ class Program
         while (!endApp)
         {
             // Declare intial empty math variables
+            // Using Nullable types to match type of System.Console.Readline
             string? numInput1 = "";
             string? numInput2 = "";
             double result = 0;
