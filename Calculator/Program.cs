@@ -80,6 +80,8 @@ class Program
 
             Console.WriteLine("\n"); // Spacing for better styling
         }
+        // Close JSON writer before return
+        calculator.Finish();
         return;
     }
 }

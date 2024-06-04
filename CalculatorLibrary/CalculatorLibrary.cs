@@ -19,7 +19,7 @@ namespace CalculatorLibrary
         public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not a number" to avoid division by 0 errors
-            writer.WriteStartObject();
+            writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
             writer.WritePropertyName("Operand2");
@@ -59,6 +59,13 @@ namespace CalculatorLibrary
             writer.WriteEndObject(); // Writes a JSON end object (})
 
             return result;
+        }
+
+        public void Finish()
+        {
+            writer.WriteEndArray(); // Writes a JSON end array (])
+            writer.WriteEndObject(); // Writes a JSON end object (})
+            writer.Close(); // Closes the JSON stream
         }
     }
 }
