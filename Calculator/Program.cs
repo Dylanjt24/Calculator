@@ -50,6 +50,7 @@ class Program
                 "\ts - Subtract\n" +
                 "\tm - Multiply\n" +
                 "\td - Divide\n" +
+                "\tsr - Square Root\n" +
                 "Your choice? ");
 
             string? op = Console.ReadLine();

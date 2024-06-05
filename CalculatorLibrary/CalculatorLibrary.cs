@@ -48,6 +48,9 @@ namespace CalculatorLibrary
                         result = num1 / num2;
                     writer.WriteValue("Divide");
                     break;
+                case "sr":
+                    result = Math.Sqrt(num1);
+                    break;
                 // Return text displaying an incorrect option was input
                 default:
                     break;
