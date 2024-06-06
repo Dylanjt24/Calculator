@@ -35,7 +35,7 @@ namespace CalculatorLibrary
                     writer.WriteValue("Add");
                     break;
                 case "s":
-                    result = num2 - num1;
+                    result = num1 - num2;
                     writer.WriteValue("Subtract");
                     break;
                 case "m":
