@@ -56,22 +56,23 @@ class Program
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            if (op == null || !Regex.IsMatch(op, "[a|s|m|d]"))
-                Console.WriteLine("Error: Unrecognizable input.");
-            else
+            while (op == null || !Regex.IsMatch(op, "[a|s|m|d|sr]"))
             {
-                try
-                {
-                    // Display error if math operation is invalid, else display the result
-                    result = calculator.DoOperation(cleanNum1, cleanNum2, op);
-                    if (double.IsNaN(result)) Console.WriteLine("This operation will result in a mathematical error.\n");
-                    else Console.WriteLine("Your result: {0:0.##}\n", result); // 0 = mandatory place, # = optional place
-                }
-                catch (Exception e)
-                {
-                    // Catch any other error that wasn't caught
-                    Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
-                }
+                Console.WriteLine("Invalid input. Please enter a valid operation:");
+                op = Console.ReadLine();
+            }
+
+            try
+            {
+                // Display error if math operation is invalid, else display the result
+                result = calculator.DoOperation(cleanNum1, cleanNum2, op);
+                if (double.IsNaN(result)) Console.WriteLine("This operation will result in a mathematical error.\n");
+                else Console.WriteLine("Your result: {0:0.##}\n", result); // 0 = mandatory place, # = optional place
+            }
+            catch (Exception e)
+            {
+                // Catch any other error that wasn't caught
+                Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
             }
             Console.WriteLine("------------------------\n");
 
