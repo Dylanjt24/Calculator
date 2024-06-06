@@ -33,17 +33,6 @@ class Program
                 numInput1 = Console.ReadLine();
             }
 
-            // Ask user for second math number
-            Console.WriteLine("Type a number, then press Enter: ");
-            numInput2 = Console.ReadLine();
-
-            double cleanNum2 = 0;
-            while (!double.TryParse(numInput2, out cleanNum2))
-            {
-                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
-                numInput2 = Console.ReadLine();
-            }
-
             // Prompt user to choose math operator
             Console.WriteLine("Choose an operator from the following list:\n" +
                 "\ta - Add\n" +
@@ -60,6 +49,17 @@ class Program
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
+            }
+
+            // Ask user for second math number
+            Console.WriteLine("Type a number, then press Enter: ");
+            numInput2 = Console.ReadLine();
+
+            double cleanNum2 = 0;
+            while (!double.TryParse(numInput2, out cleanNum2))
+            {
+                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
+                numInput2 = Console.ReadLine();
             }
 
             try
