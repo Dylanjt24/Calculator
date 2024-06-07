@@ -52,6 +52,10 @@ namespace CalculatorLibrary
                     result = Math.Sqrt(num1);
                     writer.WriteValue("Square root");
                     break;
+                case "e":
+                    result = Math.Pow(num1, num2);
+                    writer.WriteValue("Exponentiate");
+                    break;
                 // Return text displaying an incorrect option was input
                 default:
                     break;

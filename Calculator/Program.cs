@@ -40,12 +40,13 @@ class Program
                 "\tm - Multiply\n" +
                 "\td - Divide\n" +
                 "\tsr - Square Root\n" +
+                "\te - Exponentiate\n" +
                 "Your choice? ");
 
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            while (op == null || !Regex.IsMatch(op, "[a|s|m|d|sr]"))
+            while (op == null || !Regex.IsMatch(op, "[a|s|m|d|e|sr]"))
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
