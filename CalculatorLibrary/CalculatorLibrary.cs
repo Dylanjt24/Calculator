@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace CalculatorLibrary
@@ -22,8 +23,11 @@ namespace CalculatorLibrary
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
-            writer.WritePropertyName("Operand2");
-            writer.WriteValue(num2);
+            if (!Regex.IsMatch(op, @"\bsr\b"))
+            {
+                writer.WritePropertyName("Operand2");
+                writer.WriteValue(num2);
+            }
             writer.WritePropertyName("Operation");
 
 
