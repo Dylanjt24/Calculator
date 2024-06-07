@@ -50,17 +50,21 @@ class Program
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
             }
-
-            // Ask user for second math number
-            Console.WriteLine("Type a number, then press Enter: ");
-            numInput2 = Console.ReadLine();
-
             double cleanNum2 = 0;
-            while (!double.TryParse(numInput2, out cleanNum2))
+
+            // Only ask user for second number if operation requires one
+            if (!Regex.IsMatch(op, @"\bsr\b")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
             {
-                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
+                Console.WriteLine("Type a number, then press Enter: ");
                 numInput2 = Console.ReadLine();
+
+                while (!double.TryParse(numInput2, out cleanNum2))
+                {
+                    Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
+                    numInput2 = Console.ReadLine();
+                }
             }
+
 
             try
             {

@@ -49,8 +49,6 @@ namespace CalculatorLibrary
                     writer.WriteValue("Divide");
                     break;
                 case "sr":
-                    Console.WriteLine("Square root");
-                    Console.ReadLine();
                     result = Math.Sqrt(num1);
                     writer.WriteValue("Square root");
                     break;
