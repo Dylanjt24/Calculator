@@ -21,18 +21,6 @@ class Program
             string? numInput2 = "";
             double result = 0;
 
-            // Ask user for first math number
-            Console.WriteLine("Type a number, then press Enter: ");
-            numInput1 = Console.ReadLine();
-
-            // Prompt for input until a number is input, save it in cleanNum1
-            double cleanNum1 = 0;
-            while (!double.TryParse(numInput1, out cleanNum1))
-            {
-                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
-                numInput1 = Console.ReadLine();
-            }
-
             // Prompt user to choose math operator
             Console.WriteLine("Choose an operator from the following list:\n" +
                 "\ta - Add\n" +
@@ -47,17 +35,30 @@ class Program
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|t)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
+            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
             }
+
+            // Ask user for first math number
+            Console.WriteLine("Type a number, then press Enter: ");
+            numInput1 = Console.ReadLine();
+
+            // Prompt for input until a number is input, save it in cleanNum1
+            double cleanNum1 = 0;
+            while (!double.TryParse(numInput1, out cleanNum1))
+            {
+                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
+                numInput1 = Console.ReadLine();
+            }
+
             double cleanNum2 = 0;
 
             // Only ask user for second number if operation requires one
             if (!Regex.IsMatch(op, @"\A(sr|x)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
             {
-                Console.WriteLine("Type a number, then press Enter: ");
+                Console.WriteLine("Type second number, then press Enter: ");
                 numInput2 = Console.ReadLine();
 
                 while (!double.TryParse(numInput2, out cleanNum2))
