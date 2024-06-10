@@ -61,7 +61,7 @@ namespace CalculatorLibrary
                     writer.WriteValue("Exponentiate");
                     break;
                 case "x":
-                    result = num1 * 10;
+                    result = Math.Pow(10, num1);
                     writer.WriteValue("10x");
                     break;
                 // Return text displaying an incorrect option was input
