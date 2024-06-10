@@ -23,7 +23,7 @@ namespace CalculatorLibrary
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
-            if (!Regex.IsMatch(op, @"\A(sr|t)\Z"))
+            if (!Regex.IsMatch(op, @"\A(sr|x)\Z"))
             {
                 writer.WritePropertyName("Operand2");
                 writer.WriteValue(num2);
@@ -60,7 +60,7 @@ namespace CalculatorLibrary
                     result = Math.Pow(num1, num2);
                     writer.WriteValue("Exponentiate");
                     break;
-                case "t":
+                case "x":
                     result = num1 * 10;
                     writer.WriteValue("10x");
                     break;

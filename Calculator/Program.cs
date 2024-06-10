@@ -41,7 +41,7 @@ class Program
                 "\td - Divide\n" +
                 "\tsr - Square Root\n" +
                 "\te - Exponentiate\n" +
-                "\tt - 10x\n" +
+                "\tx - 10x\n" +
                 "Your choice? ");
 
             string? op = Console.ReadLine();
@@ -55,7 +55,7 @@ class Program
             double cleanNum2 = 0;
 
             // Only ask user for second number if operation requires one
-            if (!Regex.IsMatch(op, @"\A(sr|t)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
+            if (!Regex.IsMatch(op, @"\A(sr|x)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
             {
                 Console.WriteLine("Type a number, then press Enter: ");
                 numInput2 = Console.ReadLine();
