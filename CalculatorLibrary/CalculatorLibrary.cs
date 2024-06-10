@@ -23,7 +23,7 @@ namespace CalculatorLibrary
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
-            if (!Regex.IsMatch(op, @"\bsr\b|t"))
+            if (!Regex.IsMatch(op, @"\A(sr|t)\Z"))
             {
                 writer.WritePropertyName("Operand2");
                 writer.WriteValue(num2);

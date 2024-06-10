@@ -47,7 +47,7 @@ class Program
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            while (op == null || !Regex.IsMatch(op, "[a|s|m|d|e|sr|t]"))
+            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|t)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
@@ -55,7 +55,7 @@ class Program
             double cleanNum2 = 0;
 
             // Only ask user for second number if operation requires one
-            if (!Regex.IsMatch(op, @"\bsr\b|t")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
+            if (!Regex.IsMatch(op, @"\A(sr|t)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
             {
                 Console.WriteLine("Type a number, then press Enter: ");
                 numInput2 = Console.ReadLine();
