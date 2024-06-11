@@ -20,7 +20,7 @@ namespace CalculatorLibrary
         public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not a number" to avoid division by 0 errors
-            double angleInRadians = num1 * Math.PI / 180;
+            double angleInRadians = num1 * Math.PI / 180; // Convert angle to radians for use with trigonometric functions
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
