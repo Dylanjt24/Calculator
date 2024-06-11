@@ -7,6 +7,7 @@ namespace CalculatorLibrary
     public class Calculator
     {
         JsonWriter writer;
+        public string pattern = @"\A(sr|x|sin|cos|tan)\Z";
         public Calculator()
         {
             StreamWriter logFile = File.CreateText("calculator.json"); // StreamWriter implements a TextWriter for writing characters to a stream in a particular encoding
@@ -24,7 +25,7 @@ namespace CalculatorLibrary
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
-            if (!Regex.IsMatch(op, @"\A(sr|x|sin|cos|tan)\Z"))
+            if (!Regex.IsMatch(op, pattern))
             {
                 writer.WritePropertyName("Operand2");
                 writer.WriteValue(num2);
