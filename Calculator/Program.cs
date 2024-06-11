@@ -8,6 +8,7 @@ class Program
     static void Main(string[] args)
     {
         bool endApp = false;
+        int numCalculations = 0;
         // Intitial calculator title
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
@@ -77,7 +78,11 @@ class Program
                 // Display error if math operation is invalid, else display the result
                 result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                 if (double.IsNaN(result)) Console.WriteLine("This operation will result in a mathematical error.\n");
-                else Console.WriteLine("Your result: {0:0.##}\n", result); // 0 = mandatory place, # = optional place
+                else
+                {
+                    Console.WriteLine("Your result: {0:0.##}\n", result); // 0 = mandatory place, # = optional place
+                    numCalculations++;
+                }
             }
             catch (Exception e)
             {
@@ -86,6 +91,7 @@ class Program
             }
             Console.WriteLine("------------------------\n");
 
+            Console.WriteLine($"You've performed {numCalculations} successful calculations");
             // Wait for user response before closing
             Console.WriteLine("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
             if (Console.ReadLine() == "n") endApp = true;
