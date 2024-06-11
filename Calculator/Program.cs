@@ -30,12 +30,15 @@ class Program
                 "\tsr - Square Root\n" +
                 "\te - Exponentiate\n" +
                 "\tx - 10x\n" +
+                "\tsin - Sine\n" +
+                "\tcos - Cosine\n" +
+                "\ttan - Tangent\n" +
                 "Your choice? ");
 
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
+            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x|sin|cos|tan)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
@@ -56,7 +59,7 @@ class Program
             double cleanNum2 = 0;
 
             // Only ask user for second number if operation requires one
-            if (!Regex.IsMatch(op, @"\A(sr|x)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
+            if (!Regex.IsMatch(op, @"\A(sr|x|sin|cos|tan)\Z")) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
             {
                 Console.WriteLine("Type second number, then press Enter: ");
                 numInput2 = Console.ReadLine();

@@ -20,10 +20,11 @@ namespace CalculatorLibrary
         public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not a number" to avoid division by 0 errors
+            double angleInRadians = num1 * Math.PI / 180;
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
-            if (!Regex.IsMatch(op, @"\A(sr|x)\Z"))
+            if (!Regex.IsMatch(op, @"\A(sr|x|sin|cos|tan)\Z"))
             {
                 writer.WritePropertyName("Operand2");
                 writer.WriteValue(num2);
@@ -63,6 +64,18 @@ namespace CalculatorLibrary
                 case "x":
                     result = Math.Pow(10, num1);
                     writer.WriteValue("10x");
+                    break;
+                case "cos":
+                    result = Math.Cos(angleInRadians);
+                    writer.WriteValue("Cosine");
+                    break;
+                case "sin":
+                    result = Math.Sin(angleInRadians);
+                    writer.WriteValue("Sine");
+                    break;
+                case "tan":
+                    result = Math.Tan(angleInRadians);
+                    writer.WriteValue("Tangent");
                     break;
                 // Return text displaying an incorrect option was input
                 default:
