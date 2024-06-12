@@ -34,12 +34,13 @@ class Program
                 "\tsin - Sine\n" +
                 "\tcos - Cosine\n" +
                 "\ttan - Tangent\n" +
+                "\tv - View Previous Caluclations" +
                 "Your choice? ");
 
             string? op = Console.ReadLine();
 
             // Validate user input is not null and matches one of the available choices
-            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x|sin|cos|tan)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
+            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x|sin|cos|tan|v)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
                 op = Console.ReadLine();
