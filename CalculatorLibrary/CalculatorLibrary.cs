@@ -100,6 +100,33 @@ namespace CalculatorLibrary
             return result;
         }
 
+        public string GetMathOperator()
+        {
+            Console.WriteLine("Choose an operator from the following list:\n" +
+                "\ta - Add\n" +
+                "\ts - Subtract\n" +
+                "\tm - Multiply\n" +
+                "\td - Divide\n" +
+                "\tsr - Square Root\n" +
+                "\te - Exponentiate\n" +
+                "\tx - 10x\n" +
+                "\tsin - Sine\n" +
+                "\tcos - Cosine\n" +
+                "\ttan - Tangent\n" +
+                "\tv - View Previous Caluclations\n" +
+                "Your choice? ");
+
+            string? op = Console.ReadLine();
+
+            // Validate user input is not null and matches one of the available choices
+            while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x|sin|cos|tan|v)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
+            {
+                Console.WriteLine("Invalid input. Please enter a valid operation:");
+                op = Console.ReadLine();
+            }
+            return op;
+        }
+
         public void Finish()
         {
             writer.WriteEndArray(); // Writes a JSON end array (])
