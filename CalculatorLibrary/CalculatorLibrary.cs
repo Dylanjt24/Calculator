@@ -127,6 +127,24 @@ namespace CalculatorLibrary
             return op;
         }
 
+        public double GetPreviousResults()
+        {
+            if (calculations.Count == 0)
+            {
+                Console.WriteLine("No previous results available. Press Enter to go back to menu:");
+                Console.ReadLine();
+                return double.NaN;
+            }
+
+            int count = 0;
+            foreach (var result in calculations)
+            {
+                Console.WriteLine($"{count}. {result}");
+                count++;
+            }
+            return 0;
+        }
+
         public void Finish()
         {
             writer.WriteEndArray(); // Writes a JSON end array (])
