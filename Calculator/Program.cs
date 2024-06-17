@@ -22,6 +22,7 @@ class Program
             string? numInput2 = "";
             double result = 0;
 
+            Console.Clear();
             // Prompt user to choose math operator
             string op = calculator.GetMathOperator();
             double cleanNum1 = 0;
