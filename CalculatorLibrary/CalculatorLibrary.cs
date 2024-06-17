@@ -40,54 +40,54 @@ namespace CalculatorLibrary
                 case "a":
                     result = num1 + num2;
                     writer.WriteValue("Add");
-                    calculations.Add($"{num1} + {num2} = {result}");
+                    calculations.Add($"{num1} + {num2} = {result:0.##}");
                     break;
                 case "s":
                     result = num1 - num2;
                     writer.WriteValue("Subtract");
-                    calculations.Add($"{num1} - {num2} = {result}");
+                    calculations.Add($"{num1} - {num2} = {result:0.##}");
                     break;
                 case "m":
                     result = num1 * num2;
                     writer.WriteValue("Multiply");
-                    calculations.Add($"{num1} * {num2} = {result}");
+                    calculations.Add($"{num1} * {num2} = {result:0.##}");
                     break;
                 case "d":
                     // Make sure divisor is non-zero
                     if (num2 != 0)
                         result = num1 / num2;
                     writer.WriteValue("Divide");
-                    calculations.Add($"{num1} / {num2} = {result}");
+                    calculations.Add($"{num1} / {num2} = {result:0.##}");
                     break;
                 case "sr":
                     result = Math.Sqrt(num1);
                     writer.WriteValue("Square root");
-                    calculations.Add($"Square root of {num1} = {result}");
+                    calculations.Add($"Square root of {num1} = {result:0.##}");
                     break;
                 case "e":
                     result = Math.Pow(num1, num2);
                     writer.WriteValue("Exponentiate");
-                    calculations.Add($"{num1} to the power of {num2} = {result}");
+                    calculations.Add($"{num1} to the power of {num2} = {result:0.##}");
                     break;
                 case "x":
                     result = Math.Pow(10, num1);
                     writer.WriteValue("10x");
-                    calculations.Add($"10 to the power of {num1} = {result}");
+                    calculations.Add($"10 to the power of {num1} = {result:0.##}");
                     break;
                 case "cos":
                     result = Math.Cos(angleInRadians);
                     writer.WriteValue("Cosine");
-                    calculations.Add($"Cosine of {num1} = {result}");
+                    calculations.Add($"Cosine of {num1} = {result:0.##}");
                     break;
                 case "sin":
                     result = Math.Sin(angleInRadians);
                     writer.WriteValue("Sine");
-                    calculations.Add($"Sine of {num1} = {result}");
+                    calculations.Add($"Sine of {num1} = {result:0.##}");
                     break;
                 case "tan":
                     result = Math.Tan(angleInRadians);
                     writer.WriteValue("Tangent");
-                    calculations.Add($"Tangent of {num1} = {result}");
+                    calculations.Add($"Tangent of {num1} = {result:0.##}");
                     break;
                 // Return text displaying an incorrect option was input
                 default:
