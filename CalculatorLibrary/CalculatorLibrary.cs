@@ -129,6 +129,7 @@ namespace CalculatorLibrary
 
         public double GetPreviousResults()
         {
+            Console.Clear();
             if (calculations.Count == 0)
             {
                 Console.WriteLine("No previous results available. Press Enter to go back to menu:");
@@ -137,11 +138,14 @@ namespace CalculatorLibrary
             }
 
             int count = 0;
+            Console.WriteLine("Previous Calculations\n" +
+                "---------------------");
             foreach (var result in calculations)
             {
-                Console.WriteLine($"{count}. {result}");
+                Console.WriteLine($"{count + 1}. {result}");
                 count++;
             }
+            Console.WriteLine("---------------------");
             return 0;
         }
 
