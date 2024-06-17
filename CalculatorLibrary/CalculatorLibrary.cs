@@ -138,15 +138,27 @@ namespace CalculatorLibrary
             }
 
             int count = 0;
+            int resultChoice;
             Console.WriteLine("Previous Calculations\n" +
                 "---------------------");
             foreach (var result in calculations)
             {
+                // Print each previous calculation
                 Console.WriteLine($"{count + 1}. {result}");
                 count++;
             }
             Console.WriteLine("---------------------");
-            return 0;
+            Console.WriteLine("Select a previous result to use for another calculation, or hit Enter to return to the main menu:");
+            var selection = Console.ReadLine();
+            if (int.TryParse(selection, out resultChoice)) // Check if a number was entered by user
+            {
+                if (resultChoice > 0 && resultChoice <= calculations.Count) // Check if provided number is an index in the calculations list
+                {
+                    string[] calcStrings = calculations[resultChoice - 1].Split(new char[] { ' ' }); // Grab calculation string at given index, split it at each space
+                    return double.Parse(calcStrings[^1]); // Return last index of the split strings, since that's where the result of the calcuation is stored
+                }
+            }
+            return double.NaN;
         }
 
         public void Finish()
