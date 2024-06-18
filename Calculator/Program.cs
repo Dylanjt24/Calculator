@@ -25,18 +25,22 @@ class Program
             Console.Clear();
             // Prompt user to choose math operator
             string op = calculator.GetMathOperator();
-            double cleanNum1 = 0;
+            double cleanNum1;
 
             if (op == "v")
             {
                 cleanNum1 = calculator.GetPreviousResults();
                 if (double.IsNaN(cleanNum1))
                     continue;
+                op = calculator.GetMathOperator();
+            }
+            else
+            {
+                // Ask user for first math number
+                Console.WriteLine("Type a number, then press Enter: ");
+                numInput1 = Console.ReadLine();
             }
 
-            // Ask user for first math number
-            Console.WriteLine("Type a number, then press Enter: ");
-            numInput1 = Console.ReadLine();
 
             // Prompt for input until a number is input, save it in cleanNum1
             while (!double.TryParse(numInput1, out cleanNum1))
