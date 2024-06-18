@@ -26,6 +26,7 @@ namespace CalculatorLibrary
             writer.WriteStartObject(); // Writes a JSON start object ({)
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
+            // Write Operand2 if operation selected requires one
             if (!Regex.IsMatch(op, pattern))
             {
                 writer.WritePropertyName("Operand2");
@@ -148,7 +149,11 @@ namespace CalculatorLibrary
                 count++;
             }
             Console.WriteLine("---------------------");
-            Console.WriteLine("Select a previous result to use for another calculation, or hit Enter to return to the main menu:");
+            Console.WriteLine($"Choose an option:\n" +
+                $"\t1-{calculations.Count} - Use a previous result for new calculation\n" +
+                $"\td - Delete previous calculations\n" +
+                $"\tEnter - Return to main menu\n" +
+                $"Your choice?");
             var selection = Console.ReadLine();
             if (int.TryParse(selection, out resultChoice)) // Check if a number was entered by user
             {
@@ -158,7 +163,15 @@ namespace CalculatorLibrary
                     return double.Parse(calcStrings[^1]); // Return last index of the split strings, since that's where the result of the calcuation is stored
                 }
             }
-            return double.NaN;
+            // Clear calculations list if user selects the option
+            else if (selection == "d")
+            {
+                calculations.Clear();
+                Console.Clear();
+                Console.WriteLine("Previous calcuations deleted. Press Enter to return to the main menu:");
+                Console.ReadLine();
+            }
+            return double.NaN; // Return NaN if anything but a valid calculations index is provided
         }
 
         public void Finish()
