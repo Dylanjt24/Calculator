@@ -39,14 +39,13 @@ class Program
                 // Ask user for first math number
                 Console.WriteLine("Type a number, then press Enter: ");
                 numInput1 = Console.ReadLine();
-            }
 
-
-            // Prompt for input until a number is input, save it in cleanNum1
-            while (!double.TryParse(numInput1, out cleanNum1))
-            {
-                Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
-                numInput1 = Console.ReadLine();
+                // Prompt for input until a number is input, save it in cleanNum1
+                while (!double.TryParse(numInput1, out cleanNum1))
+                {
+                    Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
+                    numInput1 = Console.ReadLine();
+                }
             }
 
             double cleanNum2 = 0;
