@@ -80,9 +80,9 @@ class Program
                 // Catch any other error that wasn't caught
                 Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
             }
+            Console.WriteLine($"You've performed {numCalculations} successful calculations");
             Console.WriteLine("------------------------\n");
 
-            Console.WriteLine($"You've performed {numCalculations} successful calculations");
             // Wait for user response before closing
             Console.WriteLine("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
             if (Console.ReadLine() == "n") endApp = true;
