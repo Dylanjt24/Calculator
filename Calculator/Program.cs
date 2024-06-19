@@ -29,10 +29,10 @@ class Program
 
             if (op == "v")
             {
-                cleanNum1 = calculator.GetPreviousResults();
-                if (double.IsNaN(cleanNum1))
+                cleanNum1 = calculator.GetPreviousResults(); // Assign cleanNum1 based on previous calculation selected
+                if (double.IsNaN(cleanNum1)) // If they didn't select previous calculation, continue back to top of while loop
                     continue;
-                op = calculator.GetMathOperator();
+                op = calculator.GetMathOperator(); // If they did select a previous calc, get the math operator to use
             }
             else
             {

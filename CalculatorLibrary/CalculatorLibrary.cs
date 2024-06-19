@@ -117,13 +117,13 @@ namespace CalculatorLibrary
                 "\tv - View Previous Caluclations\n" +
                 "Your choice? ");
 
-            string? op = Console.ReadLine();
+            string? op = Console.ReadLine().ToLower();
 
             // Validate user input is not null and matches one of the available choices
             while (op == null || !Regex.IsMatch(op, @"\A(a|s|m|d|e|sr|x|sin|cos|tan|v)\Z")) // Makes input have to match options exactly; \A matches beginning of string; \Z matches end of string, before new line;
             {
                 Console.WriteLine("Invalid input. Please enter a valid operation:");
-                op = Console.ReadLine();
+                op = Console.ReadLine().ToLower();
             }
             return op;
         }
