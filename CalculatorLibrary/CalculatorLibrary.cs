@@ -148,9 +148,10 @@ namespace CalculatorLibrary
                 Console.WriteLine($"{count + 1}. {result}");
                 count++;
             }
+            var indexRange = calculations.Count == 1 ? "1" : $"1-{calculations.Count}";
             Console.WriteLine("---------------------");
             Console.WriteLine($"Choose an option:\n" +
-                $"\t1-{calculations.Count} - Use a previous result for new calculation\n" +
+                $"\t{indexRange} - Use a previous result for new calculation\n" +
                 $"\td - Delete previous calculations\n" +
                 $"\tEnter - Return to main menu\n" +
                 $"Your choice?");
