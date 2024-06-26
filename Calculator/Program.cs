@@ -51,7 +51,7 @@ class Program
             double cleanNum2 = 0;
 
             // Only ask user for second number if operation requires one
-            if (!Regex.IsMatch(op, calculator.pattern)) // \b matches a word boundary, ensuring the pattern matches "sr" as a whole word
+            if (!Regex.IsMatch(op, calculator.pattern))
             {
                 Console.WriteLine("Type second number, then press Enter: ");
                 numInput2 = Console.ReadLine();
